@@ -271,7 +271,7 @@ bot.on('message', (message) =>{
                 case 'd6':
             
                 message.delete();
-                message.channel.send(gea);
+                message.channel.send(ged);
                 timeNext = (currentdate.getHours() + 20) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
