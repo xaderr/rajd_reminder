@@ -5,6 +5,10 @@ var currentdate = new Date();
 const gea = '<@&436982514557386782>';
 var rajdList = new String();
 var text = new String();
+let modRole;
+let j;
+let k;
+
 
 var rt3 = new Map();
 rt3.set('Viconia','357574272945881089 ');
@@ -22,105 +26,224 @@ const dniTygodnia = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','P
 
 
 bot.on('message', (message) =>{
-    switch(message.content){
+    modRole = message.guild.roles.find("name","GEA Officer");
+    rtRole = message.guild.roles.find("name","GEA rajd team 3")
+    if(message.member.roles.has(modRole.id)) {
+        switch (message.content) {
+           
+            case 'h':
+           message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60% + podana data przyszłego rajdu");
+           message.channelrt3.send("HALO");
+            break;s
 
-        case 'u':
-            message.delete();
-            currentdate.getHours();
-            timeMax = (currentdate.getHours() + 18) % 24;
-            var embed = new Discord.RichEmbed()
-                .setColor(0x0000FF)
-                .setFooter('Rajd odpalony przez: '+ message.author.username)
-                .addField("Ultimus 50 lvl START",gea)
-                .addField("Data rozpoczęcia : ",dniTygodnia[currentdate.getDay()]+', '+currentdate.getDate()+'/'+(currentdate.getMonth()+1)+' o godzinie '+currentdate.getHours()+':'+currentdate.getMinutes());
-            if(currentdate.getHours()>8)
-                text="Jutro do godziny "+timeMax + ":"+currentdate.getMinutes();
-            else
-                text="Dzisaj do godziny "+timeMax + ":"+currentdate.getMinutes();
-            embed.addField("Data zakończenia :",text);
-            message.channel.send(embed);
-            break;
+            case 'u':
+                message.delete();
+                message.channel.send(gea);
+                currentdate.getHours();
+                timeMax = (currentdate.getHours() + 18) % 24;
+                var embed = new Discord.RichEmbed()
+                    .setColor(0x0000FF)
+                    .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
+                    .setFooter('Rajd odpalony przez: ' + message.author.username)
+                    .addField("Ultimus 50 lvl START", gea)
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes());
+                if (currentdate.getHours() > 8)
+                    text = "Jutro do godziny " + timeMax + ":" + currentdate.getMinutes();
+                else
+                    text = "Dzisaj do godziny " + timeMax + ":" + currentdate.getMinutes();
+                embed.addField("Data zakończenia :", text);
+                message.channel.send(embed);
+                break;
 
-        case 'd':
+            case 'd6':
+            
+                message.delete();
+                message.channel.send(gea);
+                timeNext = (currentdate.getHours() + 20) % 24;
+                var embed = new Discord.RichEmbed()
+                    .setColor(0xFF0000)
+                    .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
+                    .addField("Deadpool En Fuego START ", gea)
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
+                    .addField("Cel :", "**60%**")
+                    .setFooter('Rajd odpalony przez: ' + message.author.username);
+                if (currentdate.getDay() != 6) {
+                    embed.addField("Kolejny rajd planowany na : ", dniTygodnia[(currentdate.getDay() + 1)] + ', ' + (currentdate.getDate() + 1) + '/' + (currentdate.getMonth() + 1) + ' około godziny ' + timeNext + ':' + currentdate.getMinutes())
+                }
+                ;
+                message.channel.send(embed);
+                break;
 
-            message.delete();
-            timeNext = (currentdate.getHours() + 20) % 24;
-            var embed = new Discord.RichEmbed()
-                .setColor(0xFF0000)
-                .addField("Deadpool En Fuego START ",gea)
-                .addField("Data rozpoczęcia : ",dniTygodnia[currentdate.getDay()]+', '+currentdate.getDate()+'/'+(currentdate.getMonth()+1)+' o godzinie '+currentdate.getHours()+':'+currentdate.getMinutes())
-                .addField("Cel :","**60%**")
-                .setFooter('Rajd odpalony przez: '+ message.author.username);
-            if(currentdate.getDay() != 7){
-                embed.addField("Kolejny rajd planowany na : ",dniTygodnia[(currentdate.getDay()+1)]+', '+(currentdate.getDate()+1)+'/'+(currentdate.getMonth()+1)+' około godziny '+timeNext+':'+currentdate.getMinutes())
+                case 'd':
+                message.delete();
+                message.channel.send(gea);
+                timeNext = (currentdate.getHours() + 20) % 24;
+                var embed = new Discord.RichEmbed()
+                    .setColor(0xFF0000)
+                    .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
+                    .addField("Deadpool En Fuego START ", gea)
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
+                    .addField("Cel :", "**100%**")
+                    .setFooter('Rajd odpalony przez: ' + message.author.username);
+                message.channel.send(embed);
+                break;
             };
-            message.channel.send(embed);
-            break;
+            };
 
+            if(message.member.roles.has(rtRole.id)) {
+            switch (message.content) {  
+            case '!1':
+                message.delete();
+                for (i = 0; i < rt3_id.length; i++) {
+                    rajdList += ('Linia ' + (i + 1) + ' --- ' + '<@' + rt3_id[i] + '> \n');
+                }
+                message.channel.send("Rotacja nr 1 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
-
-        case '1':
+            case '!2':
             message.delete();
-            for (i = 0; i < rt3_id.length; i++) {
-                rajdList+=('Linia '+(i+1)+' --- '+'<@'+rt3_id[i]+'> \n');
-            }
-            message.channel.send("Rotacja nr 1 z dnia "+currentdate.getDate()+"/"+(currentdate.getMonth()+1)+'\n \n'+rajdList,{
-                file:'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-1<0)
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-1] + '> \n');
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-1] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr 2 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
             });
-            rajdList="";
-            break;
+            rajdList = "";
+            break;  
 
-        // case '!2':
-        //   message.delete();
-        //   for (i = 0; i < rt3_id.length; i++) {
-        //     //   if(i < 0)
-        //     //     j = rt3_id.length - i;
-        //     // else
-        //     //     j = i;
-        //       rajdList+=('Linia '+(i+1)+' --- '+'<@'+(rt3_id[(j-1)])+'> \n');
-        //     }
-        //     message.channel.send("Rotacja nr 2 z dnia "+currentdate.getDate()+"/"+(currentdate.getMonth()+1)+'\n \n'+rajdList,{
-        //       file:'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-        //     });
+    
+            case '!3':
+            j=0;
+            k=2;
+            message.delete();
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-2<0){
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        j++;
+                }
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+            });
+            rajdList = "";
+            break;  
 
-        //     break;
-        //
-        //     case '!3':
-        //         message.delete();
-        //         for (i = 0; i < rt3_id.length; i++) {
-        //             message.channel.send('Linia '+(i+1)+' --- '+'<@'+rt3_id[.(i-2)]+'>');
-        //         }
-        //         break;
-        //
-        //     case '4':
-        //
-        //         break;
-        //
-        //     case '5':
-        //
-        //         break;
-        //
-        //     case '6':
-        //
-        //         break;
-        //
-        //     case '7':
-        //
-        //         break;
-        //
-        //     case '8':
-        //
-        //         break;
-        //
-        //     case '2':
-        //
-        //         break;
+            case '!4':
+            j=0;
+            k=3;
+            message.delete();
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-k<0){
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        j++;
+                }
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+            });
+            rajdList = "";
+
+            case '!5':
+            j=0;
+            k=4;
+            message.delete();
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-k<0){
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        j++;
+                }
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+            });
+            rajdList = "";
+            break;  
+
+            case '!6':
+            j=0;
+            k=5;
+            message.delete();
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-k<0){
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        j++;
+                }
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+            });
+            rajdList = "";
+            break;  
+
+            case '!7':
+            j=0;
+            k=6;
+            message.delete();
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-k<0){
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        j++;
+                }
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+            });
+            rajdList = "";
+            break;  
+
+            case '!8':
+            j=0;
+            k=7;
+            message.delete();
+                for(i =0; i< rt3_id.length; i++)
+                {   
+                    if(i-k<0){
+                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        j++;
+                }
+                    else
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+                    
+                }
+            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+            });
+            rajdList = "";
+            break;  
 
 
-
-        case'!!xxx':
-            channel.message.delete();
-            break;
+            case'!!xxx':
+                channel.message.delete();
+                break;
+        }
     }
 });
 
