@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 
 var currentdate = new Date();
 const gea = '<@&436982514557386782>';
+const ged = '<@450429077053112360>';
 var rajdList = new String();
 var text = new String();
 let modRole;
@@ -27,12 +28,14 @@ const dniTygodnia = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','P
 
 bot.on('message', (message) =>{
     modRole = message.guild.roles.find("name","GEA Officer");
-    rtRole = message.guild.roles.find("name","GEA rajd team 3")
+    rtRole = message.guild.roles.find("name","GEA rajd team 3");
+    modRoleGED = message.guild.roles.find("name","GED Officer");
     if(message.member.roles.has(modRole.id)) {
         switch (message.content) {
            
             case 'h':
            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60% + podana data przyszłego rajdu");
+           message.channelrt3.send("HALO");
             break;s
 
             case 'u':
@@ -237,13 +240,61 @@ bot.on('message', (message) =>{
             });
             rajdList = "";
             break;  
-
-
-            case'!!xxx':
-                channel.message.delete();
-                break;
         }
     }
+
+        if(message.member.roles.has(modRoleGED.id)) {
+
+            switch (message.content) {
+
+                case 'u':
+                message.delete();
+                message.channel.send(ged);
+                currentdate.getHours();
+                timeMax = (currentdate.getHours() + 18) % 24;
+                var embed = new Discord.RichEmbed()
+                    .setColor(0x0000FF)
+                    .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
+                    .setFooter('Rajd odpalony przez: ' + message.author.username)
+                    .addField("Ultimus 50 lvl START", ged)
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes());
+                if (currentdate.getHours() > 8)
+                    text = "Jutro do godziny " + timeMax + ":" + currentdate.getMinutes();
+                else
+                    text = "Dzisaj do godziny " + timeMax + ":" + currentdate.getMinutes();
+                embed.addField("Data zakończenia :", text);
+                message.channel.send(embed);
+                break;
+
+
+
+                case 'd6':
+            
+                message.delete();
+                message.channel.send(gea);
+                timeNext = (currentdate.getHours() + 20) % 24;
+                var embed = new Discord.RichEmbed()
+                    .setColor(0xFF0000)
+                    .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
+                    .addField("Deadpool En Fuego START ", ged)
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
+                    .addField("Cel :", "**60%**")
+                    .setFooter('Rajd odpalony przez: ' + message.author.username);
+                if (currentdate.getDay() != 6) {
+                    embed.addField("Kolejny rajd planowany na : ", dniTygodnia[(currentdate.getDay() + 1)] + ', ' + (currentdate.getDate() + 1) + '/' + (currentdate.getMonth() + 1) + ' około godziny ' + timeNext + ':' + currentdate.getMinutes())
+                }
+                ;
+                message.channel.send(embed);
+                break;
+
+
+
+        };
+       
+
+
+
+
 });
 
 bot.login('NDQ5MjcyNjMyMDEwMDgwMjU3.DeiRbw.9bg3pDTt8MTQ4k_xaIAtNqGhJ-g');
