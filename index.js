@@ -33,10 +33,7 @@ bot.on('message', (message) =>{
     if(message.member.roles.has(modRole.id)) {
         switch (message.content) {
            
-            case 'h':
-           message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60% + podana data przyszłego rajdu");
-           message.channelrt3.send("HALO");
-            break;s
+
 
             case 'u':
                 message.delete();
@@ -297,6 +294,15 @@ bot.on('message', (message) =>{
 
         }
 
+
+        if((message.member.roles.has(modRole.id)) || (message.member.roles.has(modRoleGED.id)))  {
+            switch (message.content) {  
+            case 'h':
+            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60% + podana data przyszłego rajdu");
+            message.channelrt3.send("HALO");
+             break;s
+        }
+    }
 });
 
 bot.login('NDQ5MjcyNjMyMDEwMDgwMjU3.DeiRbw.9bg3pDTt8MTQ4k_xaIAtNqGhJ-g');
