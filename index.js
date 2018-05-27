@@ -299,8 +299,7 @@ bot.on('message', (message) =>{
             switch (message.content) {  
             case 'h':
             message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60% + podana data przyszłego rajdu");
-            message.channelrt3.send("HALO");
-             break;s
+             break;
         }
     }
 });
