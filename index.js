@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 var currentdate = new Date();
 const gea = '<@&436982514557386782>';
-const ged = '<@&450429077053112360>';
+const ged = '<@&436982588121284618>';
 var rajdList = new String();
 var text = new String();
 let modRole;
@@ -285,6 +285,12 @@ bot.on('message', (message) =>{
                 }
                 ;
                 message.channel.send(embed);
+                break;
+
+
+                case 'i':
+
+                message.member.roles.
                 break;
 
             }
