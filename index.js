@@ -111,7 +111,7 @@ bot.on('message', (message) =>{
                 rajdList += ('Linia 3 --- <@'+gea_rt1[5]+'> \n');
                 rajdList += ('Linia 4 --- <@'+gea_rt1[3]+'> \n');
                 rajdList += ('Linia 5 --- <@'+gea_rt1[7]+'> \n');
-                rajdList += ('Linia 6 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 6 --- <@'+gea_rt1[6]+'> \n');
                 rajdList += ('Linia 7 --- <@'+gea_rt1[2]+'> \n');
                 rajdList += ('Linia 8 --- <@'+gea_rt1[0]+'> \n');
                 message.channel.send("Rotacja nr 2 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
