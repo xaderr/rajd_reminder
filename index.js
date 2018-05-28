@@ -43,7 +43,7 @@ bot.on('message', (message) =>{
                 message.delete();
                 message.channel.send(gea);
                 currentdate.getHours();
-                timeMax = (currentdate.getHours() + 18) % 24;
+                timeMax = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0x0000FF)
                     .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
@@ -345,7 +345,7 @@ bot.on('message', (message) =>{
                 message.delete();
                 message.channel.send(ged);
                 currentdate.getHours();
-                timeMax = (currentdate.getHours() + 18) % 24;
+                timeMax = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0x0000FF)
                     .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
