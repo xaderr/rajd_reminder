@@ -8,6 +8,7 @@ var text = new String();
 let modRole;
 let j;
 let k;
+var n;
 
 
 var rt3 = new Map();
@@ -42,18 +43,21 @@ bot.on('message', (message) =>{
                 currentdate= new Date();
                 message.delete();
                 message.channel.send(gea);
-                currentdate.getHours();
+                if(currentdate.getMinutes()<10)
+                    n = "0"+currentdate.getMinutes();
+                else
+                    n = currentdate.getMinutes();
                 timeMax = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0x0000FF)
                     .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
                     .setFooter('Rajd odpalony przez: ' + message.author.username)
                     .addField("Ultimus 50 lvl START", gea)
-                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes());
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n);
                 if (currentdate.getHours() > 8)
-                    text = "Jutro do godziny " + timeMax + ":" + currentdate.getMinutes();
+                    text = "Jutro do godziny " + timeMax + ":" + n;
                 else
-                    text = "Dzisaj do godziny " + timeMax + ":" + currentdate.getMinutes();
+                    text = "Dzisaj do godziny " + timeMax + ":" + n;
                 embed.addField("Data zakończenia :", text);
                 message.channel.send(embed);
                 break;
@@ -80,13 +84,17 @@ bot.on('message', (message) =>{
                 case 'd':
                 message.delete();
                 currentdate= new Date();
+                if(currentdate.getMinutes()<10)
+                n = "0"+currentdate.getMinutes();
+                else
+                n = currentdate.getMinutes();
                 message.channel.send(gea);
                 timeNext = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
                     .addField("Deadpool En Fuego START ", gea)
-                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n)
                     .addField("Cel :", "**100%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
                 message.channel.send(embed);
@@ -346,6 +354,10 @@ bot.on('message', (message) =>{
                 currentdate= new Date();
                 message.delete();
                 message.channel.send(ged);
+                if(currentdate.getMinutes()<10)
+                n = "0"+currentdate.getMinutes();
+                else
+                n = currentdate.getMinutes();
                 currentdate.getHours();
                 timeMax = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
@@ -353,11 +365,11 @@ bot.on('message', (message) =>{
                     .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
                     .setFooter('Rajd odpalony przez: ' + message.author.username)
                     .addField("Ultimus 50 lvl START", ged)
-                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes());
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n);
                 if (currentdate.getHours() > 8)
-                    text = "Jutro do godziny " + timeMax + ":" + currentdate.getMinutes();
+                    text = "Jutro do godziny " + timeMax + ":" + n;
                 else
-                    text = "Dzisaj do godziny " + timeMax + ":" + currentdate.getMinutes();
+                    text = "Dzisaj do godziny " + timeMax + ":" + n;
                 embed.addField("Data zakończenia :", text);
                 message.channel.send(embed);
                 break;
@@ -369,12 +381,16 @@ bot.on('message', (message) =>{
                 message.delete();
                 currentdate= new Date();
                 message.channel.send(ged);
+                if(currentdate.getMinutes()<10)
+                n = "0"+currentdate.getMinutes();
+                else
+                n = currentdate.getMinutes();
                 timeNext = (currentdate.getHours() + 20) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
                     .addField("Deadpool En Fuego START ", ged)
-                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
+                    .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n)
                     .addField("Cel :", "**30%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
                 // if (currentdate.getDay() == 6) {
