@@ -62,7 +62,7 @@ bot.on('message', (message) =>{
             
                 message.delete();
                 message.channel.send(gea);
-                timeNext = (currentdate.getHours() + 20) % 24;
+                timeNext = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
@@ -80,7 +80,7 @@ bot.on('message', (message) =>{
                 case 'd':
                 message.delete();
                 message.channel.send(gea);
-                timeNext = (currentdate.getHours() + 20) % 24;
+                timeNext = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
