@@ -106,14 +106,14 @@ bot.on('message', (message) =>{
 
                 case '!t2':
                 message.delete();
-                rajdList += ('Linia 1 --- '+gea_rt1[4]+'> \n');
-                rajdList += ('Linia 2 --- '+gea_rt1[1]+'> \n');
-                rajdList += ('Linia 3 --- '+gea_rt1[5]+'> \n');
-                rajdList += ('Linia 4 --- '+gea_rt1[3]+'> \n');
-                rajdList += ('Linia 5 --- '+gea_rt1[7]+'> \n');
-                rajdList += ('Linia 6 --- '+gea_rt1[3]+'> \n');
-                rajdList += ('Linia 7 --- '+gea_rt1[2]+'> \n');
-                rajdList += ('Linia 8 --- '+gea_rt1[0]+'> \n');
+                rajdList += ('Linia 1 --- <@'+gea_rt1[4]+'> \n');
+                rajdList += ('Linia 2 --- <@'+gea_rt1[1]+'> \n');
+                rajdList += ('Linia 3 --- <@'+gea_rt1[5]+'> \n');
+                rajdList += ('Linia 4 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 5 --- <@'+gea_rt1[7]+'> \n');
+                rajdList += ('Linia 6 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 7 --- <@'+gea_rt1[2]+'> \n');
+                rajdList += ('Linia 8 --- <@'+gea_rt1[0]+'> \n');
                 message.channel.send("Rotacja nr 2 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
                     file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
                 });
@@ -122,14 +122,14 @@ bot.on('message', (message) =>{
 
                 case '!t3':
                 message.delete();
-                rajdList += ('Linia 1 --- '+gea_rt1[7]+'> \n');
-                rajdList += ('Linia 2 --- '+gea_rt1[3]+'> \n');
-                rajdList += ('Linia 3 --- '+gea_rt1[6]+'> \n');
-                rajdList += ('Linia 4 --- '+gea_rt1[1]+'> \n');
-                rajdList += ('Linia 5 --- '+gea_rt1[0]+'> \n');
-                rajdList += ('Linia 6 --- '+gea_rt1[2]+'> \n');
-                rajdList += ('Linia 7 --- '+gea_rt1[5]+'> \n');
-                rajdList += ('Linia 8 --- '+gea_rt1[4]+'> \n');
+                rajdList += ('Linia 1 --- <@'+gea_rt1[7]+'> \n');
+                rajdList += ('Linia 2 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 3 --- <@'+gea_rt1[6]+'> \n');
+                rajdList += ('Linia 4 --- <@'+gea_rt1[1]+'> \n');
+                rajdList += ('Linia 5 --- <@'+gea_rt1[0]+'> \n');
+                rajdList += ('Linia 6 --- <@'+gea_rt1[2]+'> \n');
+                rajdList += ('Linia 7 --- <@'+gea_rt1[5]+'> \n');
+                rajdList += ('Linia 8 --- <@'+gea_rt1[4]+'> \n');
                 message.channel.send("Rotacja nr 3 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
                     file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
                 });
@@ -138,14 +138,14 @@ bot.on('message', (message) =>{
 
                 case '!t4':
                 message.delete();
-                rajdList += ('Linia 1 --- '+gea_rt1[4]+'> \n');
-                rajdList += ('Linia 2 --- '+gea_rt1[1]+'> \n');
-                rajdList += ('Linia 3 --- '+gea_rt1[5]+'> \n');
-                rajdList += ('Linia 4 --- '+gea_rt1[3]+'> \n');
-                rajdList += ('Linia 5 --- '+gea_rt1[7]+'> \n');
-                rajdList += ('Linia 6 --- '+gea_rt1[6]+'> \n');
-                rajdList += ('Linia 7 --- '+gea_rt1[2]+'> \n');
-                rajdList += ('Linia 8 --- '+gea_rt1[0]+'> \n');
+                rajdList += ('Linia 1 --- <@'+gea_rt1[4]+'> \n');
+                rajdList += ('Linia 2 --- <@'+gea_rt1[1]+'> \n');
+                rajdList += ('Linia 3 --- <@'+gea_rt1[5]+'> \n');
+                rajdList += ('Linia 4 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 5 --- <@'+gea_rt1[7]+'> \n');
+                rajdList += ('Linia 6 --- <@'+gea_rt1[6]+'> \n');
+                rajdList += ('Linia 7 --- <@'+gea_rt1[2]+'> \n');
+                rajdList += ('Linia 8 --- <@'+gea_rt1[0]+'> \n');
                 message.channel.send("Rotacja nr 4 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
                     file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
                 });
@@ -154,14 +154,14 @@ bot.on('message', (message) =>{
 
                 case '!t5':
                 message.delete();
-                rajdList += ('Linia 1 --- '+gea_rt1[4]+'> \n');
-                rajdList += ('Linia 2 --- '+gea_rt1[3]+'> \n');
-                rajdList += ('Linia 3 --- '+gea_rt1[5]+'> \n');
-                rajdList += ('Linia 4 --- '+gea_rt1[1]+'> \n');
-                rajdList += ('Linia 5 --- '+gea_rt1[7]+'> \n');
-                rajdList += ('Linia 6 --- '+gea_rt1[6]+'> \n');
-                rajdList += ('Linia 7 --- '+gea_rt1[2]+'> \n');
-                rajdList += ('Linia 8 --- '+gea_rt1[0]+'> \n');
+                rajdList += ('Linia 1 --- <@'+gea_rt1[4]+'> \n');
+                rajdList += ('Linia 2 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 3 --- <@'+gea_rt1[5]+'> \n');
+                rajdList += ('Linia 4 --- <@'+gea_rt1[1]+'> \n');
+                rajdList += ('Linia 5 --- <@'+gea_rt1[7]+'> \n');
+                rajdList += ('Linia 6 --- <@'+gea_rt1[6]+'> \n');
+                rajdList += ('Linia 7 --- <@'+gea_rt1[2]+'> \n');
+                rajdList += ('Linia 8 --- <@'+gea_rt1[0]+'> \n');
                 message.channel.send("Rotacja nr 5 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
                     file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
                 });
@@ -170,14 +170,14 @@ bot.on('message', (message) =>{
      
                 case '!t6':
                 message.delete();
-                rajdList += ('Linia 1 --- '+gea_rt1[7]+'> \n');
-                rajdList += ('Linia 2 --- '+gea_rt1[1]+'> \n');
-                rajdList += ('Linia 3 --- '+gea_rt1[6]+'> \n');
-                rajdList += ('Linia 4 --- '+gea_rt1[3]+'> \n');
-                rajdList += ('Linia 5 --- '+gea_rt1[0]+'> \n');
-                rajdList += ('Linia 6 --- '+gea_rt1[2]+'> \n');
-                rajdList += ('Linia 7 --- '+gea_rt1[5]+'> \n');
-                rajdList += ('Linia 8 --- '+gea_rt1[4]+'> \n');
+                rajdList += ('Linia 1 --- <@'+gea_rt1[7]+'> \n');
+                rajdList += ('Linia 2 --- <@'+gea_rt1[1]+'> \n');
+                rajdList += ('Linia 3 --- <@'+gea_rt1[6]+'> \n');
+                rajdList += ('Linia 4 --- <@'+gea_rt1[3]+'> \n');
+                rajdList += ('Linia 5 --- <@'+gea_rt1[0]+'> \n');
+                rajdList += ('Linia 6 --- <@'+gea_rt1[2]+'> \n');
+                rajdList += ('Linia 7 --- <@'+gea_rt1[5]+'> \n');
+                rajdList += ('Linia 8 --- <@'+gea_rt1[4]+'> \n');
                 message.channel.send("Rotacja nr 6 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
                     file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
                 });
