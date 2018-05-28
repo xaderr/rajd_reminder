@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-var currentdate = new Date();
 const gea = '<@&436982514557386782>';
 const ged = '<@&436982588121284618>';
 var rajdList = new String();
@@ -9,7 +8,6 @@ var text = new String();
 let modRole;
 let j;
 let k;
-
 
 
 var rt3 = new Map();
@@ -27,7 +25,7 @@ var rt3_id = ['357574272945881089','366626526009098241','296622400198410241', '3
 var ged_rt1= ['310834716620357634','181137845220540425','436965446042779668','382881899628199936','279331892262862848','436964477687169034','275268529517756417','243029161680175106'];
 var ged_rt2= ['177325394792284160','442743140441522182','357268422264094721','440559571602505728','218165894629556224','355307403442520074','137560955444789249','360263741230678026'];
 var ged_rt3= ['366563995047690241','352809425368514560','319614983384203264','436846489977880586','444200400887742474','359408600348885002','413418650402422786','436923901428105239'];
-var gea_rt1 = [];
+var gea_rt1 = ['359360563182305280','336892968780955649','344079803457994753','216678879501221890','353414596759126016','176346784908574730','242032042559143946','314867745789575168'];
 const dniTygodnia = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'];
 // let content = new String();
 
@@ -35,12 +33,13 @@ bot.on('message', (message) =>{
     modRole = message.guild.roles.find("name","GEA Officer");
     rtRole = message.guild.roles.find("name","GEA rajd team 3");
     modRoleGED = message.guild.roles.find("name","GED Officer");
+    var currentdate = new Date();
     if(message.member.roles.has(modRole.id)) {
        
         switch (message.content) {
            
             case 'u':
-                
+                currentdate= new Date();
                 message.delete();
                 message.channel.send(gea);
                 currentdate.getHours();
@@ -90,6 +89,19 @@ bot.on('message', (message) =>{
                     .addField("Cel :", "**100%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
                 message.channel.send(embed);
+                break;
+
+
+
+                case '!t1':
+                message.delete();
+                for (i = 0; i < rt3_id.length; i++) {
+                rajdList += ('Linia '+(i+1)+' --- <@'+gea_rt1[i]+'> \n');
+                }
+                message.channel.send("Rotacja nr 1 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
                 break;
             };
             };
@@ -270,7 +282,7 @@ bot.on('message', (message) =>{
 
 
 
-                case 'd6':
+                case 'd3':
             
                 message.delete();
                 message.channel.send(ged);
@@ -280,7 +292,7 @@ bot.on('message', (message) =>{
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
                     .addField("Deadpool En Fuego START ", ged)
                     .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
-                    .addField("Cel :", "**60%**")
+                    .addField("Cel :", "**30%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
                 if (currentdate.getDay() != 6) {
                     embed.addField("Kolejny rajd planowany na : ", dniTygodnia[(currentdate.getDay() + 1)] + ', ' + (currentdate.getDate() + 1) + '/' + (currentdate.getMonth() + 1) + ' około godziny ' + timeNext + ':' + currentdate.getMinutes())
@@ -331,7 +343,7 @@ bot.on('message', (message) =>{
         if((message.member.roles.has(modRole.id)) || (message.member.roles.has(modRoleGED.id)))  {
             switch (message.content) {  
             case 'h':
-            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60% + podana data przyszłego rajdu");
+            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d3 - start EN na 60% + podana data przyszłego rajdu \nged u t1/2/3 - teamy GED");
              break;
         }
     }
