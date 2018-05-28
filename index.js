@@ -59,8 +59,8 @@ bot.on('message', (message) =>{
                 break;
 
             case 'd6':
-            
                 message.delete();
+                currentdate= new Date();
                 message.channel.send(gea);
                 timeNext = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
@@ -79,6 +79,7 @@ bot.on('message', (message) =>{
 
                 case 'd':
                 message.delete();
+                currentdate= new Date();
                 message.channel.send(gea);
                 timeNext = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
@@ -342,6 +343,7 @@ bot.on('message', (message) =>{
             switch (message.content) {
 
                 case 'u':
+                currentdate= new Date();
                 message.delete();
                 message.channel.send(ged);
                 currentdate.getHours();
@@ -365,6 +367,7 @@ bot.on('message', (message) =>{
                 case 'd3':
             
                 message.delete();
+                currentdate= new Date();
                 message.channel.send(ged);
                 timeNext = (currentdate.getHours() + 20) % 24;
                 var embed = new Discord.RichEmbed()
