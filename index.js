@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-
+var currentdate = new Date();
 const gea = '<@&436982514557386782>';
 const ged = '<@&436982588121284618>';
 var rajdList = new String();
@@ -33,10 +33,8 @@ bot.on('message', (message) =>{
     if(message.member.roles.has(modRole.id)) {
         switch (message.content) {
            
-
-
             case 'u':
-                var currentdate = new Date();
+                
                 message.delete();
                 message.channel.send(gea);
                 currentdate.getHours();
@@ -56,7 +54,7 @@ bot.on('message', (message) =>{
                 break;
 
             case 'd6':
-              var currentdate = new Date();
+            
                 message.delete();
                 message.channel.send(gea);
                 timeNext = (currentdate.getHours() + 20) % 24;
@@ -75,7 +73,6 @@ bot.on('message', (message) =>{
                 break;
 
                 case 'd':
-                var currentdate = new Date();
                 message.delete();
                 message.channel.send(gea);
                 timeNext = (currentdate.getHours() + 20) % 24;
@@ -247,7 +244,6 @@ bot.on('message', (message) =>{
             switch (message.content) {
 
                 case 'u':
-                var currentdate = new Date();
                 message.delete();
                 message.channel.send(ged);
                 currentdate.getHours();
@@ -271,7 +267,6 @@ bot.on('message', (message) =>{
                 case 'd6':
             
                 message.delete();
-                var currentdate = new Date();
                 message.channel.send(ged);
                 timeNext = (currentdate.getHours() + 20) % 24;
                 var embed = new Discord.RichEmbed()
