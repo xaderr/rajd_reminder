@@ -374,7 +374,7 @@ bot.on('message', (message) =>{
                     .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + currentdate.getMinutes())
                     .addField("Cel :", "**30%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
-                if (currentdate.getDay() != 6) {
+                if (currentdate.getDay() == 6) {
                     embed.addField("Kolejny rajd planowany na : ", dniTygodnia[(currentdate.getDay() + 1)] + ', ' + (currentdate.getDate() + 1) + '/' + (currentdate.getMonth() + 1) + ' około godziny ' + timeNext + ':' + currentdate.getMinutes())
                 }
                 ;
@@ -423,7 +423,7 @@ bot.on('message', (message) =>{
         if((message.member.roles.has(modRole.id)) || (message.member.roles.has(modRoleGED.id)))  {
             switch (message.content) {  
             case 'h':
-            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d3 - start EN na 60% + podana data przyszłego rajdu \nged u t1/2/3 - teamy GED");
+            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d3 - start EN na 60% + podana data przyszłego rajdu \nged u t1/2/3 - teamy GED\n!t1 - !t6 GEA RT 1\n !1 - !8 GEA rt3");
              break;
         }
     }
