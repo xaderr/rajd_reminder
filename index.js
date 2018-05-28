@@ -23,14 +23,19 @@ rt3.set('Skalarek','351018405131976706');
 var rt3_id = ['357574272945881089','366626526009098241','296622400198410241', '307554713212289024',
     '430302560595869697','222762799233761281','432081260853198868','351018405131976706'];
 
+var ged_rt1= ['310834716620357634','181137845220540425','436965446042779668','382881899628199936','279331892262862848','436964477687169034','275268529517756417','243029161680175106'];
+var ged_rt2= ['177325394792284160','442743140441522182','357268422264094721','440559571602505728','218165894629556224','355307403442520074','137560955444789249','360263741230678026'];
+var ged_rt3= ['366563995047690241','352809425368514560','319614983384203264','436846489977880586','444200400887742474','359408600348885002','413418650402422786','436923901428105239'];
+var gea_rt1 = [];
 const dniTygodnia = ['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'];
-
+// let content = new String();
 
 bot.on('message', (message) =>{
     modRole = message.guild.roles.find("name","GEA Officer");
     rtRole = message.guild.roles.find("name","GEA rajd team 3");
     modRoleGED = message.guild.roles.find("name","GED Officer");
     if(message.member.roles.has(modRole.id)) {
+       
         switch (message.content) {
            
             case 'u':
@@ -284,9 +289,37 @@ bot.on('message', (message) =>{
                 break;
 
 
-                case 'i':
+                case 'ged u t1':
+                message.delete();
+                for(i =0;i<ged_rt1.length;i++){
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + ged_rt1[i] + '> \n');
+                }
+                message.channel.send("Rajd team 1\n"+"Data rozpoczęcia: " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
-                message.member.roles.
+                case 'ged u t2':
+                message.delete();
+                for(i =0;i<ged_rt2.length;i++){
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + ged_rt2[i] + '> \n');
+                }
+                message.channel.send("Rajd team 2\n"+"Data rozpoczęcia: " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
+
+                case 'ged u t3':
+                message.delete();
+                for(i =0;i<ged_rt3.length;i++){
+                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + ged_rt3[i] + '> \n');
+                }
+                message.channel.send("Rajd team 3\n"+"Data rozpoczęcia: " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
                 break;
 
             }
