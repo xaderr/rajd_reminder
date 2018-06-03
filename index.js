@@ -18,10 +18,10 @@ rt3.set('Polan','296622400198410241');
 rt3.set('Lukasz','307554713212289024');
 rt3.set('Tynka','430302560595869697');
 rt3.set('Xader','222762799233761281 ');
-rt3.set('Kijek','432081260853198868');
+rt3.set('Sztorm','176413302228910080');
 rt3.set('Skalarek','351018405131976706');
 var rt3_id = ['357574272945881089','366626526009098241','296622400198410241', '307554713212289024',
-    '430302560595869697','222762799233761281','432081260853198868','351018405131976706'];
+    '430302560595869697','222762799233761281','176413302228910080','351018405131976706'];
 
 var ged_rt1= ['310834716620357634','181137845220540425','436965446042779668','382881899628199936','279331892262862848','436964477687169034','275268529517756417','243029161680175106'];
 var ged_rt2= ['177325394792284160','442743140441522182','357268422264094721','440559571602505728','218165894629556224','355307403442520074','137560955444789249','360263741230678026'];
@@ -263,6 +263,7 @@ bot.on('message', (message) =>{
                 file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
             });
             rajdList = "";
+            break;
 
             case '!5':
             j=0;
@@ -376,7 +377,7 @@ bot.on('message', (message) =>{
 
 
 
-                case 'd3':
+                case 'd6':
             
                 message.delete();
                 currentdate= new Date();
@@ -391,7 +392,7 @@ bot.on('message', (message) =>{
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
                     .addField("Deadpool En Fuego START ", ged)
                     .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n)
-                    .addField("Cel :", "**30%**")
+                    .addField("Cel :", "**60%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
                 // if (currentdate.getDay() == 6) {
                 //     embed.addField("Kolejny rajd planowany na : ", dniTygodnia[(currentdate.getDay() + 1)] + ', ' + (currentdate.getDate() + 1) + '/' + (currentdate.getMonth() + 1) + ' około godziny ' + timeNext + ':' + currentdate.getMinutes())
