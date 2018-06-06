@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 
 const gea = '<@&436982514557386782>';
 const ged = '<@&436982588121284618>';
+const gec = '<@&448825457035575326>'
 var rajdList = new String();
 var text = new String();
 let modRole;
@@ -34,6 +35,8 @@ bot.on('message', (message) =>{
     modRole = message.guild.roles.find("name","GEA Officer");
     rtRole = message.guild.roles.find("name","GEA rajd team 3");
     modRoleGED = message.guild.roles.find("name","GED Officer");
+    modRoleGEC = message.guild.roles.find("name","GEC Officer");
+    RoleGEC = message.guild.roles.find("name","GEC");
     var currentdate = new Date();
     if(message.member.roles.has(modRole.id)) {
 
@@ -348,14 +351,18 @@ bot.on('message', (message) =>{
         }
     }
 
-    if(message.member.roles.has(modRoleGED.id)) {
-
+    if((message.member.roles.has(modRoleGED.id)) || (message.member.roles.has(modRoleGEC.id))) {
+        var mention;
+        if(message.member.roles.has(modRoleGED.id))
+            mention=ged;
+        if(message.member.roles.has(modRoleGEC.id))
+            mention =gec;
         switch (message.content) {
 
             case 'u':
                 currentdate= new Date();
                 message.delete();
-                message.channel.send(ged);
+                message.channel.send(mention);
                 if(currentdate.getMinutes()<10)
                     n = "0"+currentdate.getMinutes();
                 else
@@ -366,7 +373,7 @@ bot.on('message', (message) =>{
                     .setColor(0x0000FF)
                     .setThumbnail("https://vignette.wikia.nocookie.net/marvel-strike-force/images/1/1e/Ultimus.png/revision/latest?cb=20171226011555")
                     .setFooter('Rajd odpalony przez: ' + message.author.username)
-                    .addField("Ultimus 50 lvl START", ged)
+                    .addField("Ultimus 50 lvl START", mention)
                     .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n);
                 if (currentdate.getHours() > 8)
                     text = "Jutro do godziny " + timeMax + ":" + n;
@@ -382,7 +389,7 @@ bot.on('message', (message) =>{
 
                 message.delete();
                 currentdate= new Date();
-                message.channel.send(ged);
+                message.channel.send(mention);
                 if(currentdate.getMinutes()<10)
                     n = "0"+currentdate.getMinutes();
                 else
@@ -391,7 +398,7 @@ bot.on('message', (message) =>{
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
                     .setThumbnail("http://msf.aegis.ro/wp-content/uploads/Deadpool.png")
-                    .addField("Deadpool En Fuego START ", ged)
+                    .addField("Deadpool En Fuego START ", mention)
                     .addField("Data rozpoczęcia : ", dniTygodnia[currentdate.getDay()] + ', ' + currentdate.getDate() + '/' + (currentdate.getMonth() + 1) + ' o godzinie ' + currentdate.getHours() + ':' + n)
                     .addField("Cel :", "**60%**")
                     .setFooter('Rajd odpalony przez: ' + message.author.username);
@@ -444,7 +451,7 @@ bot.on('message', (message) =>{
     if((message.member.roles.has(modRole.id)) || (message.member.roles.has(modRoleGED.id)))  {
         switch (message.content) {
             case 'h':
-                message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60%  \nged u t1/2/3 - teamy GED\n!t1 - !t6 GEA RT 1\n !1 - !8 GEA rt3");
+                message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60%  \nged&gec u t1/2/3 - teamy GED\n!t1 - !t6 GEA RT 1\n !1 - !8 GEA rt3");
                 break;
         }
     }
