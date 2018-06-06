@@ -36,9 +36,9 @@ bot.on('message', (message) =>{
     modRoleGED = message.guild.roles.find("name","GED Officer");
     var currentdate = new Date();
     if(message.member.roles.has(modRole.id)) {
-       
+
         switch (message.content) {
-           
+
             case 'u':
                 currentdate= new Date();
                 message.delete();
@@ -60,6 +60,7 @@ bot.on('message', (message) =>{
                     text = "Dzisaj do godziny " + timeMax + ":" + n;
                 embed.addField("Data zakończenia :", text);
                 message.channel.send(embed);
+                bot.channels.get('436984671230885900').send('Uwaga nowa rotacja :smiley: ');
                 break;
 
             case 'd6':
@@ -81,13 +82,13 @@ bot.on('message', (message) =>{
                 message.channel.send(embed);
                 break;
 
-                case 'd':
+            case 'd':
                 message.delete();
                 currentdate= new Date();
                 if(currentdate.getMinutes()<10)
-                n = "0"+currentdate.getMinutes();
+                    n = "0"+currentdate.getMinutes();
                 else
-                n = currentdate.getMinutes();
+                    n = currentdate.getMinutes();
                 message.channel.send(gea);
                 timeNext = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
@@ -102,10 +103,10 @@ bot.on('message', (message) =>{
 
 
 
-                case '!t1':
+            case '!t1':
                 message.delete();
                 for (i = 0; i < rt3_id.length; i++) {
-                rajdList += ('Linia '+(i+1)+' --- <@'+gea_rt1[i]+'> \n');
+                    rajdList += ('Linia '+(i+1)+' --- <@'+gea_rt1[i]+'> \n');
                 }
                 message.channel.send("Rotacja nr 1 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
                     file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
@@ -113,7 +114,7 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-                case '!t2':
+            case '!t2':
                 message.delete();
                 rajdList += ('Linia 1 --- <@'+gea_rt1[4]+'> \n');
                 rajdList += ('Linia 2 --- <@'+gea_rt1[1]+'> \n');
@@ -129,7 +130,7 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-                case '!t3':
+            case '!t3':
                 message.delete();
                 rajdList += ('Linia 1 --- <@'+gea_rt1[7]+'> \n');
                 rajdList += ('Linia 2 --- <@'+gea_rt1[3]+'> \n');
@@ -145,7 +146,7 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-                case '!t4':
+            case '!t4':
                 message.delete();
                 rajdList += ('Linia 1 --- <@'+gea_rt1[4]+'> \n');
                 rajdList += ('Linia 2 --- <@'+gea_rt1[1]+'> \n');
@@ -161,7 +162,7 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-                case '!t5':
+            case '!t5':
                 message.delete();
                 rajdList += ('Linia 1 --- <@'+gea_rt1[4]+'> \n');
                 rajdList += ('Linia 2 --- <@'+gea_rt1[3]+'> \n');
@@ -176,8 +177,8 @@ bot.on('message', (message) =>{
                 });
                 rajdList = "";
                 break;
-     
-                case '!t6':
+
+            case '!t6':
                 message.delete();
                 rajdList += ('Linia 1 --- <@'+gea_rt1[7]+'> \n');
                 rajdList += ('Linia 2 --- <@'+gea_rt1[1]+'> \n');
@@ -192,11 +193,11 @@ bot.on('message', (message) =>{
                 });
                 rajdList = "";
                 break;
-            };
-            };
+        };
+    };
 
-            if(message.member.roles.has(rtRole.id)) {
-            switch (message.content) {  
+    if(message.member.roles.has(rtRole.id)) {
+        switch (message.content) {
             case '!1':
                 message.delete();
                 for (i = 0; i < rt3_id.length; i++) {
@@ -209,156 +210,156 @@ bot.on('message', (message) =>{
                 break;
 
             case '!2':
-            message.delete();
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-1<0)
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-1] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-1] + '> \n');
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-1] + '> \n');
-                    
-                }
-            message.channel.send("Rotacja nr 2 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;  
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-1] + '> \n');
 
-    
+                }
+                message.channel.send("Rotacja nr 2 z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
+
+
             case '!3':
-            j=0;
-            k=2;
-            message.delete();
+                j=0;
+                k=2;
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-2<0){
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
                         j++;
-                }
+                    }
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
-                    
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+
                 }
-            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;  
+                message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
             case '!4':
-            j=0;
-            k=3;
-            message.delete();
+                j=0;
+                k=3;
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-k<0){
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
                         j++;
-                }
+                    }
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
-                    
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+
                 }
-            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;
+                message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
             case '!5':
-            j=0;
-            k=4;
-            message.delete();
+                j=0;
+                k=4;
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-k<0){
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
                         j++;
-                }
+                    }
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
-                    
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+
                 }
-            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;  
+                message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
             case '!6':
-            j=0;
-            k=5;
-            message.delete();
+                j=0;
+                k=5;
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-k<0){
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
                         j++;
-                }
+                    }
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
-                    
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+
                 }
-            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;  
+                message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
             case '!7':
-            j=0;
-            k=6;
-            message.delete();
+                j=0;
+                k=6;
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-k<0){
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
                         j++;
-                }
+                    }
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
-                    
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+
                 }
-            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;  
+                message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
 
             case '!8':
-            j=0;
-            k=7;
-            message.delete();
+                j=0;
+                k=7;
+                message.delete();
                 for(i =0; i< rt3_id.length; i++)
-                {   
+                {
                     if(i-k<0){
-                    rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
+                        rajdList+=('Linia '+ (i+1)+'---'+'<@' + rt3_id[rt3_id.length-k+j] + '> \n');
                         j++;
-                }
+                    }
                     else
-                    rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
-                    
+                        rajdList+= ('Linia '+ (i+1)+'---'+'<@' + rt3_id[i-k] + '> \n');
+
                 }
-            message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
-                file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
-            });
-            rajdList = "";
-            break;  
+                message.channel.send("Rotacja nr "+(k+1)+" z dnia " + currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + '\n \n' + rajdList, {
+                    file: 'https://cdn.discordapp.com/attachments/436984671230885900/439174133612281866/50-raid-map.png'
+                });
+                rajdList = "";
+                break;
         }
     }
 
-        if(message.member.roles.has(modRoleGED.id)) {
+    if(message.member.roles.has(modRoleGED.id)) {
 
-            switch (message.content) {
+        switch (message.content) {
 
-                case 'u':
+            case 'u':
                 currentdate= new Date();
                 message.delete();
                 message.channel.send(ged);
                 if(currentdate.getMinutes()<10)
-                n = "0"+currentdate.getMinutes();
+                    n = "0"+currentdate.getMinutes();
                 else
-                n = currentdate.getMinutes();
+                    n = currentdate.getMinutes();
                 currentdate.getHours();
                 timeMax = (currentdate.getHours() + 16) % 24;
                 var embed = new Discord.RichEmbed()
@@ -377,15 +378,15 @@ bot.on('message', (message) =>{
 
 
 
-                case 'd6':
-            
+            case 'd6':
+
                 message.delete();
                 currentdate= new Date();
                 message.channel.send(ged);
                 if(currentdate.getMinutes()<10)
-                n = "0"+currentdate.getMinutes();
+                    n = "0"+currentdate.getMinutes();
                 else
-                n = currentdate.getMinutes();
+                    n = currentdate.getMinutes();
                 timeNext = (currentdate.getHours() + 20) % 24;
                 var embed = new Discord.RichEmbed()
                     .setColor(0xFF0000)
@@ -402,7 +403,7 @@ bot.on('message', (message) =>{
                 break;
 
 
-                case 'ged u t1':
+            case 'ged u t1':
                 message.delete();
                 for(i =0;i<ged_rt1.length;i++){
                     rajdList+= ('Linia '+ (i+1)+'---'+'<@' + ged_rt1[i] + '> \n');
@@ -413,7 +414,7 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-                case 'ged u t2':
+            case 'ged u t2':
                 message.delete();
                 for(i =0;i<ged_rt2.length;i++){
                     rajdList+= ('Linia '+ (i+1)+'---'+'<@' + ged_rt2[i] + '> \n');
@@ -424,7 +425,7 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-                case 'ged u t3':
+            case 'ged u t3':
                 message.delete();
                 for(i =0;i<ged_rt3.length;i++){
                     rajdList+= ('Linia '+ (i+1)+'---'+'<@' + ged_rt3[i] + '> \n');
@@ -435,16 +436,16 @@ bot.on('message', (message) =>{
                 rajdList = "";
                 break;
 
-            }
-
         }
 
+    }
 
-        if((message.member.roles.has(modRole.id)) || (message.member.roles.has(modRoleGED.id)))  {
-            switch (message.content) {  
+
+    if((message.member.roles.has(modRole.id)) || (message.member.roles.has(modRoleGED.id)))  {
+        switch (message.content) {
             case 'h':
-            message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60%  \nged u t1/2/3 - teamy GED\n!t1 - !t6 GEA RT 1\n !1 - !8 GEA rt3");
-             break;
+                message.channel.send("u - start Ultimusa na 16h 50 lvl \n d - start EN na 100% \n d6 - start EN na 60%  \nged u t1/2/3 - teamy GED\n!t1 - !t6 GEA RT 1\n !1 - !8 GEA rt3");
+                break;
         }
     }
 });
